@@ -1,0 +1,33 @@
+version: '3'
+services:
+  nuxt:
+    container_name: kenly-server
+    build:
+      context: ./nuxt
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    tty: true
+    volumes:
+      - ./nuxt/.output:/src
+    working_dir: /src
+    depends_on:
+      - mysql
+    command: /bin/sh -c "node server/index.mjs"
+  mysql:
+    container_name: kenly-db
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    volumes:
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/db:/var/lib/mysql
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: kenly_db
+      MYSQL_USER: root
+      MUSQL_PORT: 3306
+    ports:
+      - "3306:3306"
