@@ -19,7 +19,7 @@ function log(str: string) {
 
 async function connect() {
   connection = await mysql.createConnection({
-    host: "localhost",
+    host: "mysql",
     user: "root",
     password: "password",
     database: "kenly_db"

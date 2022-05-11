@@ -8,12 +8,12 @@ services:
     ports:
       - "3000:3000"
     tty: true
-    volumes:
-      - ./nuxt/.output:/src
-    working_dir: /src
+    # volumes:
+    #   - ./nuxt/.output:/src
+    # working_dir: /src
     depends_on:
       - mysql
-    command: /bin/sh -c "node server/index.mjs"
+    command: /bin/sh -c "node ./.output/server/index.mjs"
   mysql:
     container_name: kenly-db
     build:
