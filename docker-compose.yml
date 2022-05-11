@@ -27,7 +27,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: kenly_db
-      MYSQL_USER: root
+      MYSQL_USER: user
       MUSQL_PORT: 3306
     ports:
       - "3306:3306"
