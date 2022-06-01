@@ -5,6 +5,6 @@
 <template>
   <div>
     ADMINページ
-    <nuxt-link to="/">アドミンへ</nuxt-link>
+    <nuxt-link to="/hera">アドミンへ</nuxt-link>
   </div>
 </template>
