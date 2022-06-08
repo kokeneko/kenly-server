@@ -22,7 +22,8 @@ export function test(str: string) {
 
 async function connect() {
   connection = await mysql.createConnection({
-    host: "mysql",
+    // host: "mysql",
+    host: "kenly-db",
     // host: "localhost",
     user: "root",
     password: "password",
