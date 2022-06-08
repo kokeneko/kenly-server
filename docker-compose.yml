@@ -1,19 +1,33 @@
 version: '3'
 services:
+  # nuxt:
+  #   container_name: kenly-server
+  #   build:
+  #     context: ./nuxt
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   tty: true
+  #   # volumes:
+  #   #   - ./nuxt/.output:/src
+  #   # working_dir: /src
+  #   depends_on:
+  #     - mysql
+  #   command: /bin/sh -c "node ./.output/server/index.mjs"
+  
   nuxt:
     container_name: kenly-server
     build:
-      context: ./nuxt
+      context: ./nuxtjs
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     tty: true
-    # volumes:
-    #   - ./nuxt/.output:/src
-    # working_dir: /src
     depends_on:
       - mysql
-    command: /bin/sh -c "node ./.output/server/index.mjs"
+    command: /bin/sh -c "npm run start"
+  
+  
   mysql:
     container_name: kenly-db
     build:
